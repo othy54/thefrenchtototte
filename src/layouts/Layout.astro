@@ -1,0 +1,98 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body style="margin: 0">
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--brown: #30171b;
+		--brown-light: #5d4043;
+		--brown-dark: #291618;
+		--nude: #faf6f3;
+		--nude2: #f8f3f1;
+		--fg1: #30171b;
+		--fg2: #5d4043;
+		--fg3: #816a6c;
+		--bg2: #fbf6f4;
+		--bg3: #ebe0d8;
+		--bg-blue: #eff1fd;
+	}
+
+	@font-face {
+		font-family: Gustavo;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Gustavo_Regular.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: Gustavo;
+		font-weight: 500;
+		font-display: swap;
+		src: url("/fonts/Gustavo_Medium.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: Gustavo;
+		font-weight: 700;
+		font-display: swap;
+		src: url("/fonts/Gustavo_Bold.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: Tartuffo;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Tartuffo_Regular.woff2") format("woff2");
+	}
+
+	html {
+		padding: 0;
+		margin: 0;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	body: {
+		margin: 0 !important;
+		padding: 0;
+	}
+
+	.section {
+		padding-left: 16px;
+		padding-right: 16px;
+
+		@media screen and (min-width: 768px) {
+			padding-left: 60px;
+			padding-right: 60px;
+		}
+
+		@media screen and (min-width: 1024px) {
+			padding-left: 80px;
+			padding-right: 80px;
+		}
+	}
+
+	.container {
+		width: 100%;
+		max-width: 1440px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>

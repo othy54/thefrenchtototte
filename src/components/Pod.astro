@@ -1,0 +1,124 @@
+---
+import { Picture } from "astro:assets";
+const { taste, description, PodImage } = Astro.props;
+---
+
+<div class="pod-wrapper">
+    <Picture
+        src={PodImage}
+        formats={["avif", "webp"]}
+        width="90"
+        height="200"
+        densities={[1, 2]}
+        quality="99"
+        alt="pod"
+    />
+    <div class="info-wrapper">
+        <div class="frame">
+            <h3>{taste}</h3>
+            <p>{description}</p>
+        </div>
+        <div class="appendice"></div>
+    </div>
+</div>
+<style>
+    .info-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(85%, -85%);
+        transform-origin: right;
+        scale: 0;
+        opacity: 0;
+        transition:
+            scale 0.5s,
+            opacity 0.5s;
+
+        & .frame {
+            border: 1px solid var(--fg1);
+            background-color: var(--bg2);
+            width: 235px;
+            padding: 24px;
+
+            & h3 {
+                font-family: Tartuffo, sans-serif;
+                font-weight: 400;
+                font-size: 24px;
+                mix-blend-mode: multiply;
+                margin: 0;
+            }
+
+            & p {
+                margin-top: 24px;
+                margin-bottom: 0;
+                font-family: Gustavo, sans-serif;
+                font-weight: 400;
+                font-size: 15px;
+                color: var(--fg3);
+                line-height: 170%;
+            }
+        }
+
+        .appendice {
+            width: 1px;
+            height: 50px;
+            background-color: var(--fg1);
+            position: relative;
+            left: 40px;
+            transform: rotate(30deg);
+            transform-origin: top;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 8px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                background-color: var(--fg1);
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    .pod-wrapper {
+        width: fit-content;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 4px;
+            background: #30171b;
+            opacity: 0.5;
+            border-radius: 100%;
+            filter: blur(4px);
+            transition: 0.5s;
+        }
+
+        & img {
+            transition: transform 0.5s;
+            position: relative;
+        }
+
+        &:hover {
+            &::after {
+                width: 45px;
+                height: 10px;
+            }
+            & img {
+                transform: translateY(-15%);
+            }
+
+            & .info-wrapper {
+                scale: 1;
+                opacity: 1;
+            }
+        }
+    }
+</style>

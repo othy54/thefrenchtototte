@@ -1,0 +1,48 @@
+---
+import Logo from "../components/Logo.astro";
+import Button from "../components/Button.astro";
+import Logotype from "../components/Logotype.astro";
+---
+
+<header>
+    <div class="section">
+        <div class="row">
+            <div class="container">
+                <nav>
+                    <Logo />
+                    <Logotype class="logotype" />
+                    <Button class="btn-buy" label="Acheter" />
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<style>
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+        position: relative;
+    }
+
+    header {
+        mix-blend-mode: multiply;
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        left: 0;
+    }
+
+    .logotype {
+        position: sticky;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 0;
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }
+    }
+</style>

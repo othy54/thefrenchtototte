@@ -1,0 +1,85 @@
+---
+import { Picture } from "astro:assets";
+import Icon from "../components/Icon.astro";
+
+const { profil, name, job, iconJob, review } = Astro.props;
+---
+
+<div class="author">
+    <Picture
+        formats={["avif", "webp"]}
+        src={profil}
+        alt="made in france"
+        densities={[1, 2]}
+        width="176"
+        height="176"
+        quality="99"
+    />
+    <h3>/{name}</h3>
+    <div class="job-wrapper">
+        <Icon name={iconJob} />
+        <span>{job}</span>
+    </div>
+    <p set:html={review} />
+</div>
+<style>
+    h3 {
+        font-family: Tartuffo, sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        margin-bottom: 16px;
+        color: var(--fg1);
+    }
+    .job-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        margin-bottom: 24px;
+        justify-content: center;
+
+        @media screen and (min-width: 768px) {
+            justify-content: flex-start;
+        }
+
+        & span {
+            font-family: Gustavo, sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 150%;
+            color: var(--fg1);
+            margin-bottom: 4px;
+        }
+    }
+
+    p {
+        font-family: Gustavo, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        color: var(--fg3);
+
+        & > :deep(span) {
+            font-family: Tartuffo, sans-serif;
+        }
+    }
+
+    .author:nth-child(1) {
+        @media screen and (min-width: 768px) {
+            margin-top: 80px;
+        }
+    }
+
+    .author:nth-child(2) {
+        @media screen and (min-width: 768px) {
+            margin-top: 160px;
+        }
+    }
+
+    .author {
+        text-align: center;
+
+        @media screen and (min-width: 768px) {
+            text-align: left;
+        }
+    }
+</style>

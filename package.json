@@ -1,0 +1,22 @@
+{
+  "name": "french-tototte",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/vue": "^4.2.0",
+    "@glidejs/glide": "^3.6.0",
+    "astro": "^4.7.1",
+    "sharp": "^0.33.3",
+    "vue": "^3.4.27"
+  },
+  "devDependencies": {
+    "vite-imagetools": "^7.0.2"
+  }
+}

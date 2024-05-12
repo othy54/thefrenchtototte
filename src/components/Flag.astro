@@ -1,0 +1,33 @@
+---
+const { className } = Astro.props;
+---
+
+<div class={"flag " + className}>
+    <div class="blue"></div>
+    <div class="white"></div>
+    <div class="red"></div>
+</div>
+<style>
+    .flag {
+        display: flex;
+
+        & > div {
+            width: 8px;
+            height: 6px;
+        }
+    }
+
+    .justify-center {
+        justify-content: center;
+    }
+
+    .blue {
+        background-color: #003db3;
+    }
+    .white {
+        background-color: white;
+    }
+    .red {
+        background-color: #f73c53;
+    }
+</style>
