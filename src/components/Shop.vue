@@ -449,6 +449,12 @@ const socials = ref([
     }
 
     & > div:nth-child(2) {
+      margin-top: 40px;
+
+      @media screen and (min-width: 768px) {
+        margin-top: 0px;
+      }
+
       & h2 {
         font-family: Tartuffo, sans-serif;
         font-weight: 400;
@@ -471,11 +477,15 @@ const socials = ref([
         font-family: Tartuffo, sans-serif;
         font-weight: 400;
         margin: 0;
-        margin-top: 120px;
+        margin-top: 60px;
         color: var(--fg1);
         font-size: 40px;
         line-height: 90%;
         margin-bottom: 24px;
+
+        @media screen and (min-width: 768px) {
+          margin-top: 120px;
+        }
       }
     }
   }
@@ -586,11 +596,15 @@ const socials = ref([
 
 .glide__bullets {
   display: flex;
-  gap: 3px;
+  gap: 10px;
   width: 100%;
   justify-content: center;
   position: relative;
   bottom: 15px;
+
+  @media screen and (min-width: 768px) {
+    gap: 3px;
+  }
 }
 
 .glide__bullet {
@@ -608,13 +622,16 @@ const socials = ref([
 }
 
 .controls {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  top: 50%;
-  transform: translateY(-50%);
-  overflow: clip;
+  display: none;
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: clip;
+  }
 }
 
 .control {
@@ -669,6 +686,11 @@ const socials = ref([
   font-size: 15px;
   line-height: 125%;
   color: var(--bg3);
+  padding-top: 150px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 0px;
+  }
 
   & ul {
     list-style-type: none;

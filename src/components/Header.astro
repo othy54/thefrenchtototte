@@ -17,6 +17,19 @@ import Logotype from "../components/Logotype.astro";
         </div>
     </div>
 </header>
+<script>
+    const header = document.querySelector("header");
+
+    const onScroll = (e) => {
+        if (window.scrollY > 580) {
+            header.classList.add("header-sticky");
+        } else {
+            header.classList.remove("header-sticky");
+        }
+    };
+
+    window.addEventListener("scroll", onScroll);
+</script>
 <style>
     nav {
         display: flex;
@@ -32,6 +45,15 @@ import Logotype from "../components/Logotype.astro";
         z-index: 100;
         width: 100%;
         left: 0;
+        & .section {
+            position: relative;
+        }
+    }
+
+    .header-sticky {
+        & .logotype {
+            opacity: 1;
+        }
     }
 
     .logotype {
@@ -40,6 +62,8 @@ import Logotype from "../components/Logotype.astro";
         transform: translateX(-50%);
         margin-bottom: 0;
         display: none;
+        opacity: 0;
+        transition: opacity 0.5s;
 
         @media screen and (min-width: 768px) {
             display: block;
