@@ -108,7 +108,7 @@ const Authors = [
 </script>
 
 <Layout title="The French Tototte">
-	<main style="position: relative">
+	<main id="main" style="position: relative">
 		<!-- SECTION HERO -->
 		<section class="section section-hero">
 			<video
@@ -132,7 +132,9 @@ const Authors = [
 			</div>
 			<div class="row">
 				<div class="container">
-					<Button variant="underline" label="decouvrir" />
+					<a href="#bento">
+						<Button variant="underline" label="decouvrir" />
+					</a>
 				</div>
 			</div>
 		</section>
@@ -141,7 +143,7 @@ const Authors = [
 
 		<section class="section section-bento">
 			<div class="row">
-				<div class="container">
+				<div id="bento" class="container">
 					<div class="section-bento__grid">
 						<div class="span span-elegance">
 							<Picture
@@ -303,12 +305,17 @@ const Authors = [
 			</div>
 			<div class="row">
 				<div class="container">
-					<Button variant="underline" label="decouvrir les saveurs" />
+					<a href="#taste">
+						<Button
+							variant="underline"
+							label="decouvrir les saveurs"
+						/>
+					</a>
 					<div class="vertical"></div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="container">
+				<div id="taste" class="container">
 					<div class="pod-wrapper">
 						{
 							Pods.map((podItem) => (

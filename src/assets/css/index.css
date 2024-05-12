@@ -82,6 +82,14 @@
     background: linear-gradient(180deg, transparent 50%, var(--bg2) 92.65%);
 }
 
+#bento {
+    scroll-margin-top: 100px;
+}
+
+#taste {
+    scroll-margin-top: 350px;
+}
+
 .section-bento {
     background-color: var(--bg2);
     padding-top: 400px;
@@ -180,7 +188,7 @@
         transform: translateX(0%) scale(1);
         transition: transform 0.5s;
 
-        @media screen and (min-width: 76!px) {
+        @media screen and (min-width: 768px) {
             transform: translateX(-35%) scale(1);
         }
     }
