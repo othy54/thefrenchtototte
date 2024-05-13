@@ -123,17 +123,19 @@
                     <span>1 x thefrenchtototte</span> <span>99,00 €</span>
                   </div>
                   <ul>
-                    <li>+ Finition argent</li>
-                    <li>+ Ornement obsidiennes</li>
+                    <li>+ Finition {{ finitionSelected }}</li>
+                    <li>+ Ornement {{ ornementSelected }}</li>
                   </ul>
                   <div class="panier-item flex-between">
-                    <span>1 x pack</span> <span>49,00 €</span>
+                    <span>1 x {{ packSelectedLabel }}</span>
+                    <span> {{ packSelectedPrice }},00 €</span>
                   </div>
                   <div class="panier-item flex-between">
                     <span>Livraison</span> <span>Offerte</span>
                   </div>
                   <div class="panier-item flex-between">
-                    <span>Prix</span> <span>148,00 €</span>
+                    <span>Prix</span>
+                    <span>{{ packSelectedPrice + 99 }},00 €</span>
                   </div>
                 </div>
                 <div class="commande">
@@ -207,6 +209,9 @@
       </div>
     </section>
     <footer>
+      <div class="logo-picto">
+        <img loading="lazy" src="/images/logo-picto.svg" alt="logo" />
+      </div>
       <div class="section-footer">
         <div class="section">
           <div class="row-footer">
@@ -271,18 +276,22 @@ const finitions = ref([
   {
     isActive: true,
     color: "linear-gradient(132.51deg, #FFE7DB 0%, #EECDBF 96.01%)",
+    name: "or",
   },
   {
     isActive: false,
     color: "linear-gradient(132.51deg, #DBF2FF 0%, #BFC7EE 96.01%)",
+    name: "argent",
   },
   {
     isActive: false,
     color: "linear-gradient(132.51deg, #F6F6F6 0%, #D8D8D8 96.01%)",
+    name: "ivoire",
   },
   {
     isActive: false,
     color: "linear-gradient(132.51deg, #99969F 0%, #484848 96.01%)",
+    name: "ebene",
   },
 ]);
 
@@ -295,10 +304,12 @@ const ornements = ref([
   {
     isActive: false,
     color: "#35E1C2",
+    label: "emeraude",
   },
   {
     isActive: false,
     color: "#FF5EAB",
+    label: "rubis",
   },
   {
     isActive: false,
@@ -314,6 +325,7 @@ const tastes = ref([
     price: "Offert",
     oldPrice: null,
     isActive: true,
+    realPrice: 0,
   },
   {
     label: "Pack Sucoteur",
@@ -321,6 +333,7 @@ const tastes = ref([
     price: "29€",
     oldPrice: null,
     isActive: false,
+    realPrice: 29,
   },
   {
     label: "Pack Sucoteur Pro",
@@ -328,8 +341,14 @@ const tastes = ref([
     price: "49€",
     oldPrice: "60€",
     isActive: false,
+    realPrice: 49,
   },
 ]);
+
+const finitionSelected = ref("or");
+const ornementSelected = ref("azur");
+const packSelectedPrice = ref(0);
+const packSelectedLabel = ref("");
 
 const activeFinitionColor = (i) => {
   const allFinitions = [
@@ -346,6 +365,7 @@ const activeFinitionColor = (i) => {
     }
   });
   activeTastes.value = allFinitions[i];
+  finitionSelected.value = finitions.value[i].name;
 };
 
 const activeOrnementColor = (i) => {
@@ -363,6 +383,7 @@ const activeOrnementColor = (i) => {
     }
   });
   activeTastes.value = allFinitions[i];
+  ornementSelected.value = ornements.value[i].label;
 };
 
 const activeTaste = (i) => {
@@ -375,6 +396,8 @@ const activeTaste = (i) => {
     }
   });
   activeTastes.value = allFinitions[i];
+  packSelectedPrice.value = tastes.value[i].realPrice;
+  packSelectedLabel.value = tastes.value[i].label;
 };
 
 const goldTastes = [gold1, gold2, gold3];
@@ -716,6 +739,7 @@ footer {
   background-color: var(--fg1);
   margin-top: -680px;
   position: relative;
+  overflow: clip;
 
   @media screen and (min-width: 768px) {
     height: 100vh;
@@ -771,5 +795,12 @@ footer {
 .fg-3 {
   color: var(--fg3);
   opacity: 0.5;
+}
+
+.logo-picto {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translate(-35%, 10%);
 }
 </style>
