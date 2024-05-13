@@ -360,7 +360,7 @@ const tastes = ref([
 const finitionSelected = ref("or");
 const ornementSelected = ref("azur");
 const packSelectedPrice = ref(0);
-const packSelectedLabel = ref("");
+const packSelectedLabel = ref("Pack Starter");
 
 const activeFinitionColor = (i) => {
   const allFinitions = [
