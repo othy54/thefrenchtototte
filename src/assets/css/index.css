@@ -448,7 +448,11 @@
                 var(--bg2) 100%
             );
             width: 1px;
-            height: 400px;
+            height: 200px;
+
+            @media screen and (min-width: 768px) {
+                height: 400px;
+            }
         }
     }
 

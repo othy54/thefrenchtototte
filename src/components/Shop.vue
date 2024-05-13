@@ -735,13 +735,15 @@ const socials = ref([
 }
 
 footer {
-  height: 150vh;
+  height: 200vh;
   background-color: var(--fg1);
-  margin-top: -680px;
+  margin-top: -960px;
   position: relative;
   overflow: clip;
 
   @media screen and (min-width: 768px) {
+    height: 150vh;
+    margin-top: -680px;
     height: 100vh;
   }
 }

@@ -23,6 +23,7 @@ const { taste, description, PodImage } = Astro.props;
 </div>
 <style>
     .info-wrapper {
+        display: none;
         position: absolute;
         top: 0;
         right: 0;
@@ -33,6 +34,10 @@ const { taste, description, PodImage } = Astro.props;
         transition:
             scale 0.5s,
             opacity 0.5s;
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }
 
         & .frame {
             border: 1px solid var(--fg1);
