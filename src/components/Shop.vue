@@ -18,9 +18,21 @@
                   </div>
                 </div>
                 <div class="glide__bullets" data-glide-el="controls[nav]">
-                  <button class="glide__bullet" data-glide-dir="=0"></button>
-                  <button class="glide__bullet" data-glide-dir="=1"></button>
-                  <button class="glide__bullet" data-glide-dir="=2"></button>
+                  <button
+                    aria-label="bullet"
+                    class="glide__bullet"
+                    data-glide-dir="=0"
+                  ></button>
+                  <button
+                    aria-label="bullet"
+                    class="glide__bullet"
+                    data-glide-dir="=1"
+                  ></button>
+                  <button
+                    aria-label="bullet"
+                    class="glide__bullet"
+                    data-glide-dir="=2"
+                  ></button>
                 </div>
                 <div class="controls" data-glide-el="controls">
                   <div class="control previous" data-glide-dir="<">
@@ -445,6 +457,7 @@ const socials = ref([
 .section-shop {
   padding-top: 180px;
   background-color: var(--bg-blue);
+  overflow: clip;
 
   & .section-shop__grid {
     display: grid;
@@ -709,10 +722,31 @@ const socials = ref([
   font-size: 15px;
   line-height: 125%;
   color: var(--bg3);
-  padding-top: 150px;
+  padding-top: 0px;
+  margin-top: 150px;
+  background-color: var(--fg1);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140%;
+    height: 120%;
+    top: -50px;
+    background-color: var(--fg1);
+    z-index: -1;
+  }
 
   @media screen and (min-width: 768px) {
     padding-top: 0px;
+    background-color: transparent;
+    padding-top: 150px;
+
+    &::before {
+      content: none;
+    }
   }
 
   & ul {
@@ -735,9 +769,8 @@ const socials = ref([
 }
 
 footer {
-  height: 200vh;
+  height: 80vh;
   background-color: var(--fg1);
-  margin-top: -960px;
   position: relative;
   overflow: clip;
 

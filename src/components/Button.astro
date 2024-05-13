@@ -4,6 +4,12 @@ const { label, variant = "default" } = Astro.props;
 
 <button class={variant}>
     {label}
+    <div class="color-wrapper">
+        <div class="color-a"></div>
+        <div class="color-b"></div>
+        <div class="color-c"></div>
+        <div class="color-d"></div>
+    </div>
 </button>
 <style>
     button {
@@ -15,12 +21,59 @@ const { label, variant = "default" } = Astro.props;
         color: var(--nude);
         cursor: pointer;
         font-size: 15px;
+        overflow: clip;
     }
 
     .lighter {
         background-color: var(--fg2);
         width: 100%;
         margin-top: 24px;
+    }
+
+    .color-wrapper {
+        display: none;
+    }
+
+    .default {
+        position: relative;
+        transition: background-color 1s;
+        & .color-wrapper {
+            display: flex;
+            position: absolute;
+            top: -40px;
+            height: 100px;
+            width: 100%;
+            mix-blend-mode: screen;
+            transform: rotate(-20deg) translateX(-150%);
+            transition: transform 1s cubic-bezier(0.52, 0.06, 0.64, 0.99);
+        }
+
+        & .color-a {
+            width: 38%;
+            background-color: #0007af;
+        }
+
+        & .color-b {
+            width: 15%;
+            background-color: #0066ff;
+        }
+
+        & .color-c {
+            width: 20%;
+            background-color: #ff5a5a;
+        }
+
+        & .color-d {
+            width: 32%;
+            background-color: #c40018;
+        }
+
+        &:hover {
+            background-color: black;
+            & .color-wrapper {
+                transform: rotate(-20deg) translateX(150%);
+            }
+        }
     }
 
     .underline {

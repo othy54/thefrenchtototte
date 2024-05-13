@@ -22,6 +22,26 @@ const { profil, name, job, iconJob, review } = Astro.props;
     </div>
     <p set:html={review} />
 </div>
+<script>
+    const authors = document.querySelectorAll(".author");
+    const io = new IntersectionObserver(
+        (entires) => {
+            entires.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("author-visible");
+                    io.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            rootMargin: "0px 0px -100px 0px",
+        },
+    );
+
+    authors.forEach((author) => {
+        io.observe(author);
+    });
+</script>
 <style>
     h3 {
         font-family: Tartuffo, sans-serif;
@@ -72,20 +92,30 @@ const { profil, name, job, iconJob, review } = Astro.props;
     .author:nth-child(1) {
         @media screen and (min-width: 768px) {
             margin-top: 80px;
+            transition-delay: 500ms;
         }
     }
 
     .author:nth-child(2) {
         @media screen and (min-width: 768px) {
             margin-top: 160px;
+            transition-delay: 600ms;
         }
     }
 
     .author {
         text-align: center;
+        transform: translateY(30%);
+        opacity: 0;
+        transition: 2s cubic-bezier(0.17, 0.67, 0.24, 1);
 
         @media screen and (min-width: 768px) {
             text-align: left;
         }
+    }
+
+    .author-visible {
+        transform: translateY(0%);
+        opacity: 1;
     }
 </style>

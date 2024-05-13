@@ -35,6 +35,11 @@
 
 .row {
     position: relative;
+    
+}
+
+.darken {
+    mix-blend-mode: multiply;
 }
 
 .row:has(.section-hero__content-hero) {
@@ -67,6 +72,9 @@
     line-height: 90%;
     mix-blend-mode: multiply;
     margin-top: 20px;
+    position: relative;
+    overflow: clip;
+ 
 
     @media screen and (min-width: 768px) {
         font-size: 80px;

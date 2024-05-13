@@ -45,14 +45,28 @@ import Logotype from "../components/Logotype.astro";
         z-index: 100;
         width: 100%;
         left: 0;
+        transition: 0.5s;
         & .section {
             position: relative;
         }
     }
 
     .header-sticky {
+        @media screen and (min-width: 768px) {
+            mix-blend-mode: normal;
+        }
         & .logotype {
             opacity: 1;
+        }
+
+        & .section {
+            @media screen and (min-width: 768px) {
+                background: linear-gradient(
+                    180deg,
+                    #faf6f3 60%,
+                    rgba(250, 246, 243, 0) 100%
+                );
+            }
         }
     }
 
