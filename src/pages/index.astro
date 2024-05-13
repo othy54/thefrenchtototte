@@ -118,8 +118,8 @@ const Authors = [
 				loop
 				playsinline
 			>
-				<source src="/video/bg-hero-video.mp4" type="video/mp4" />
 				<source src="/video/bg-hero-video.webm" type="video/webm" />
+				<source src="/video/bg-hero-video.mp4" type="video/mp4" />
 			</video>
 			<div class="mask-hero"></div>
 			<Header />
@@ -399,12 +399,15 @@ const Authors = [
 			<div class="row">
 				<div class="container">
 					<div class="video-wrapper">
-						<video
-							class="spotify-video"
-							src="/video/spotifyvideo.webm"
-							muted
-							loop
-						>
+						<video class="spotify-video" muted loop playsinline>
+							<source
+								src="/video/spotifyvideo.webm"
+								type="video/webm"
+							/>
+							<source
+								src="/video/spotifyvideo.mp4"
+								type="video/mp4"
+							/>
 						</video>
 					</div>
 				</div>

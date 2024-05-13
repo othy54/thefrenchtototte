@@ -1,5 +1,5 @@
 .section-hero {
-    height: 80vh;
+    height: 85vh;
     position: relative;
 
     @media screen and (min-width: 768px) {
@@ -42,6 +42,11 @@
     left: 50%;
     transform: translateX(-50%);
     bottom: 120px;
+    width: 80%;
+
+    @media screen and (min-width: 768px) {
+        width: auto;
+    }
 }
 
 .section-hero__bg-video {
@@ -59,14 +64,14 @@
     font-size: 40px;
     color: var(--fg2);
     text-align: center;
-    max-width: 660px;
-    text-wrap: balance;
     line-height: 90%;
     mix-blend-mode: multiply;
     margin-top: 20px;
 
     @media screen and (min-width: 768px) {
         font-size: 80px;
+        text-wrap: balance;
+        max-width: 660px;
     }
 }
 
