@@ -752,6 +752,10 @@ footer {
   flex-wrap: wrap;
   gap: 24px;
   align-items: flex-end;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
 }
 
 .copyright {

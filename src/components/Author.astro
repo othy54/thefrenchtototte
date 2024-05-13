@@ -57,6 +57,12 @@ const { profil, name, job, iconJob, review } = Astro.props;
         font-size: 14px;
         line-height: 150%;
         color: var(--fg3);
+        width: 70%;
+        margin: auto;
+
+        @media screen and (min-width: 768px) {
+            width: 100%;
+        }
 
         & > :deep(span) {
             font-family: Tartuffo, sans-serif;

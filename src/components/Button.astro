@@ -37,7 +37,7 @@ const { label, variant = "default" } = Astro.props;
             width: 0;
             background-color: var(--fg2);
             bottom: 0;
-            transition: 0.3s;
+            transition: 0.3s cubic-bezier(0.17, 1.07, 0.9, 1.46);
         }
 
         &:hover::after {

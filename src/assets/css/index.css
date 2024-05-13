@@ -754,6 +754,10 @@
     }
 }
 
+.relative {
+    position: relative;
+}
+
 .section-mynthos {
     background-color: var(--bg2);
     
@@ -768,9 +772,26 @@
         max-width: 626px;
         margin: auto;
         gap: 96px;
+        mix-blend-mode: darken;
 
         @media screen and (min-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        & > div {
+            overflow: clip
+        }
+
+        & .light-layer {
+            position: absolute;
+            height: 150%;
+            width: 40px;
+            background-color: white;
+            top: 50%;
+            left: 0;
+            transform: rotate(20deg) translateY(-50%) translateX(-150%);
+            animation: shine 3s infinite linear;
+            mix-blend-mode: overlay;
         }
 
         & h2 {
@@ -816,6 +837,20 @@
     }
 }
 
+@keyframes shine {
+    0% {
+        transform: rotate(20deg) translateY(-50%) translateX(-200%);
+    }
+
+    20% {
+        transform: rotate(20deg) translateY(-50%) translateX(600%);
+    }
+
+    100% {
+        transform: rotate(20deg) translateY(-50%) translateX(600%);
+    }
+}
+
 .section-testimonial {
     background: linear-gradient(180deg, var(--bg2) 70%, var(--bg-blue) 100%);
     padding-top: 200px;
@@ -854,9 +889,10 @@
         margin: auto;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        gap: 120px;
+        gap: 72px;
 
         @media screen and (min-width: 768px) {
+            gap: 120px;
             grid-template-columns: repeat(3, 1fr);
         }
     }
