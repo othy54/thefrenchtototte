@@ -113,12 +113,13 @@ const Authors = [
 		<section class="section section-hero">
 			<video
 				class="section-hero__bg-video"
-				src="/video/bg-hero-video.webm"
 				muted
 				autoplay
 				loop
-				preload="auto"
+				playsinline
 			>
+				<source src="/video/bg-hero-video.mp4" type="video/mp4" />
+				<source src="/video/bg-hero-video.webm" type="video/webm" />
 			</video>
 			<div class="mask-hero"></div>
 			<Header />

@@ -1,6 +1,10 @@
 .section-hero {
-    height: 100vh;
+    height: 80vh;
     position: relative;
+
+    @media screen and (min-width: 768px) {
+        height: 100vh;
+    }
 
     & .row:has(.underline) {
         position: absolute;
