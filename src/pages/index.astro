@@ -94,6 +94,17 @@ const Authors = [
 ---
 
 <script>
+	import Lenis from "lenis";
+
+	const lenis = new Lenis();
+
+	function raf(time) {
+		lenis.raf(time);
+		requestAnimationFrame(raf);
+	}
+
+	requestAnimationFrame(raf);
+
 	const videoSpotify = document.querySelector(".spotify-video");
 	const io = new IntersectionObserver((entries) => {
 		entries.forEach((entry) => {
@@ -105,6 +116,43 @@ const Authors = [
 	});
 
 	io.observe(videoSpotify);
+
+	const checkScrollSpeed = (function (settings) {
+		settings = settings || {};
+
+		let lastPos,
+			newPos,
+			timer,
+			delta,
+			delay = settings.delay || 50;
+
+		function clear() {
+			lastPos = null;
+			delta = 0;
+		}
+
+		clear();
+
+		return function () {
+			newPos = window.scrollY;
+			if (lastPos != null) {
+				// && newPos < maxScroll
+				delta = newPos - lastPos;
+			}
+			lastPos = newPos;
+			clearTimeout(timer);
+			timer = setTimeout(clear, delay);
+			return delta;
+		};
+	})();
+
+	const container = document.querySelector(".to-rotate");
+
+	window.addEventListener("scroll", function () {
+		var speed = checkScrollSpeed();
+
+		container.style.transform = `rotate(${speed * 1.5}deg)`;
+	});
 </script>
 
 <Layout title="The French Tototte | La Tototte à la française">
@@ -129,6 +177,9 @@ const Authors = [
 					<Flag className="justify-center" />
 					<div class="section-hero__content-hero">
 						<span>pour ceux qui osent etre differents</span>
+						<span class="mask">
+							pour ceux qui osent etre differents
+						</span>
 					</div>
 				</div>
 			</div>
@@ -246,8 +297,8 @@ const Authors = [
 							<div>
 								<h2>hebergement 100% français</h2>
 								<p>
-									Notre site web est heberge en france grace a
-									notre partenaire o2switch.
+									Notre site web est heberge en france et
+									développé par Othman et Doelia.
 								</p>
 							</div>
 						</div>
@@ -367,6 +418,7 @@ const Authors = [
 						</div>
 						<div>
 							<Picture
+								class="to-rotate"
 								formats={["avif", "webp"]}
 								src={Autonomy}
 								alt="autonomy"
@@ -516,7 +568,14 @@ const Authors = [
 		<!-- SECTION SHOP -->
 
 		<Shop client:visible>
-			<Button label="Ajouter au panier" variant="lighter" slot="button" />
+			<a
+				href="https://www.youtube.com/@BastiUi"
+				target="_blank"
+				slot="button"
+			>
+				<Button label="Ajouter au panier" variant="lighter" />
+			</a>
+
 			<Logotype color="#816A6C" width="376" slot="logotype" />
 		</Shop>
 	</main>

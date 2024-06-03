@@ -769,15 +769,14 @@ const socials = ref([
 }
 
 footer {
-  height: 80vh;
+  min-height: 80vh;
   background-color: var(--fg1);
   position: relative;
   overflow: clip;
 
   @media screen and (min-width: 768px) {
-    height: 150vh;
     margin-top: -680px;
-    height: 100vh;
+    min-height: 900px;
   }
 }
 
@@ -804,6 +803,7 @@ footer {
   transform: translateX(-50%);
   width: 100%;
   bottom: 40px;
+  padding-top: 340px;
 }
 
 .copyright-wrapper {

@@ -23,15 +23,54 @@ const { label, variant = "default" } = Astro.props;
         font-size: 15px;
         overflow: clip;
     }
+    .color-wrapper {
+        display: none;
+    }
 
     .lighter {
         background-color: var(--fg2);
         width: 100%;
         margin-top: 24px;
-    }
+        position: relative;
+        transition: background-color 1s;
 
-    .color-wrapper {
-        display: none;
+        & .color-wrapper {
+            display: flex;
+            position: absolute;
+            top: -40px;
+            height: 1000px;
+            width: 100%;
+            mix-blend-mode: screen;
+            transform: rotate(-20deg) translateX(-150%);
+            transition: transform 0.8s cubic-bezier(0.52, 0.06, 0.64, 0.99);
+        }
+
+        & .color-a {
+            width: 38%;
+            background-color: #0007af;
+        }
+
+        & .color-b {
+            width: 15%;
+            background-color: #0066ff;
+        }
+
+        & .color-c {
+            width: 20%;
+            background-color: #ff5a5a;
+        }
+
+        & .color-d {
+            width: 32%;
+            background-color: #c40018;
+        }
+
+        &:hover {
+            background-color: black;
+            & .color-wrapper {
+                transform: rotate(-20deg) translateX(150%);
+            }
+        }
     }
 
     .default {
@@ -90,7 +129,7 @@ const { label, variant = "default" } = Astro.props;
             width: 0;
             background-color: var(--fg2);
             bottom: 0;
-            transition: 0.3s cubic-bezier(0.17, 1.07, 0.9, 1.46);
+            transition: 0.4s cubic-bezier(0.17, 0.67, 0.61, 1.29);
         }
 
         &:hover::after {

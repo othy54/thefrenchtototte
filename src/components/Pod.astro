@@ -23,11 +23,11 @@ const { taste, description, PodImage } = Astro.props;
 </div>
 <style>
     .info-wrapper {
-        display: none;
+        /* display: none; */
         position: absolute;
         top: 0;
-        right: 0;
-        transform: translate(85%, -85%);
+        right: 50%;
+        transform: translate(20%, -85%);
         transform-origin: right;
         scale: 0;
         opacity: 0;
@@ -37,13 +37,19 @@ const { taste, description, PodImage } = Astro.props;
 
         @media screen and (min-width: 768px) {
             display: block;
+            transform: translate(85%, -85%);
+            right: 50%;
         }
 
         & .frame {
             border: 1px solid var(--fg1);
             background-color: var(--bg2);
-            width: 235px;
+            width: 200px;
             padding: 24px;
+
+            @media screen and (min-width: 768px) {
+                width: 235px;
+            }
 
             & h3 {
                 font-family: Tartuffo, sans-serif;
@@ -51,6 +57,10 @@ const { taste, description, PodImage } = Astro.props;
                 font-size: 24px;
                 mix-blend-mode: multiply;
                 margin: 0;
+
+                @media screen and (min-width: 768px) {
+                    font-size: 18px;
+                }
             }
 
             & p {
@@ -58,13 +68,18 @@ const { taste, description, PodImage } = Astro.props;
                 margin-bottom: 0;
                 font-family: Gustavo, sans-serif;
                 font-weight: 400;
-                font-size: 15px;
+                font-size: 12px;
                 color: var(--fg3);
                 line-height: 170%;
+
+                @media screen and (min-width: 768px) {
+                    font-size: 15px;
+                }
             }
         }
 
         .appendice {
+            display: none;
             width: 1px;
             height: 50px;
             background-color: var(--fg1);
@@ -83,6 +98,10 @@ const { taste, description, PodImage } = Astro.props;
                 bottom: 0;
                 left: 50%;
                 transform: translateX(-50%);
+            }
+
+            @media screen and (min-width: 768px) {
+                display: block;
             }
         }
     }
@@ -109,6 +128,13 @@ const { taste, description, PodImage } = Astro.props;
         & img {
             transition: transform 0.5s;
             position: relative;
+            max-width: 80px;
+            height: auto;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+                max-width: 90px;
+            }
         }
 
         &:hover {
@@ -123,6 +149,35 @@ const { taste, description, PodImage } = Astro.props;
             & .info-wrapper {
                 scale: 1;
                 opacity: 1;
+            }
+        }
+
+        &:nth-child(1) .info-wrapper,
+        &:nth-child(5) .info-wrapper {
+            @media screen and (max-width: 640px) {
+                transform: translate(80%, -85%);
+            }
+        }
+
+        &:nth-child(2) .info-wrapper,
+        &:nth-child(6) .info-wrapper {
+            @media screen and (max-width: 640px) {
+                transform: translate(70%, -85%);
+            }
+        }
+
+        &:nth-child(3) .info-wrapper,
+        &:nth-child(7) .info-wrapper {
+            @media screen and (max-width: 640px) {
+                transform: translate(25%, -85%);
+            }
+        }
+
+        .info-wrapper {
+            @media screen and (min-width: 768px) {
+                display: block;
+                transform: translate(85%, -85%);
+                right: 0;
             }
         }
     }

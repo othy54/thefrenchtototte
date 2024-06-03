@@ -27,12 +27,15 @@
                 bottom: 0;
                 position: absolute;
                 left: 50%;
-                transform: translate(-50%, 105%);
+                transform: translate(-50%, 100%);
             }
         }
     }
 }
 
+.to-rotate {
+    transition: 0.3s;
+}
 .row {
     position: relative;
     
@@ -74,12 +77,34 @@
     margin-top: 20px;
     position: relative;
     overflow: clip;
+    display: inline-block;
  
 
     @media screen and (min-width: 768px) {
         font-size: 80px;
         text-wrap: balance;
         max-width: 660px;
+    }
+
+    .mask {
+        position: absolute;
+        inset: 0;
+        color: transparent;
+        background-clip: text;
+        background-image: url('/images/bg-text-colors.png');
+        background-position-y: center;
+        background-position-x: -400%;
+        background-repeat: no-repeat;
+        animation: colormoving 6s infinite;
+    }
+}
+
+@keyframes colormoving {
+    75% {
+        background-position-x: 400%;
+    }
+    100% {
+        background-position-x: 400%;
     }
 }
 
@@ -122,6 +147,7 @@
     max-width: 976px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 280px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -455,7 +481,6 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            gap: 20px;
         }
 
         & .vertical {
@@ -635,11 +660,11 @@
             
             
         }
-        &:hover {
+        /* &:hover {
             & img {
                 transform: rotate(25deg);
             }
-        }
+        } */
     }
 
     & > div:not(:nth-child(2)) {
