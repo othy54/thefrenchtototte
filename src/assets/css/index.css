@@ -36,6 +36,11 @@
 .to-rotate {
     transition: 0.3s;
 }
+
+.to-rotate--active {
+    transform: rotate(20deg);
+}
+
 .row {
     position: relative;
     

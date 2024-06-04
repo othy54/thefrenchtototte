@@ -10,6 +10,7 @@ import Spotify from "../components/Spotify.astro";
 import Pod from "../components/Pod.astro";
 import Author from "../components/Author.astro";
 import Shop from "../components/Shop.vue";
+import Top from "../components/Top.astro";
 
 import { Picture } from "astro:assets";
 
@@ -25,17 +26,17 @@ const Pods = [
 	{
 		image: import("../assets/images/pod-0.png"),
 		taste: "fraise",
-		description: "Une fraise francaise cueillie dans nos cheres regions.",
+		description: "Une fraise française cueillie dans nos chères regions.",
 	},
 	{
 		image: import("../assets/images/pod-1.png"),
 		taste: "menthe",
-		description: "Pour une haleine fraiche avant vos reunions.",
+		description: "Pour une haleine fraîche avant vos réunions.",
 	},
 	{
 		image: import("../assets/images/pod-2.png"),
 		taste: "bubble gum",
-		description: "Un gout sucre pour retourner en enfance.",
+		description: "Un goût sucré pour retourner en enfance.",
 	},
 	{
 		image: import("../assets/images/pod-3.png"),
@@ -47,24 +48,24 @@ const Pods = [
 		image: import("../assets/images/pod-4.png"),
 		taste: "bacon fumé",
 		description:
-			"Un gout de porc pour honorer nos elevages made in france.",
+			"Un goût de porc pour honorer nos élevages made in France.",
 	},
 	{
 		image: import("../assets/images/pod-5.png"),
 		taste: "france",
 		description:
-			"Sucotez la Republique avec cet etendard bleu blanc rouge.",
+			"Suçotez la République avec cet étendard bleu blanc rouge.",
 	},
 	{
 		image: import("../assets/images/pod-6.png"),
 		taste: "jus de mynthos",
 		description:
-			"Profitez du gout concentre de la premiere traite du matin.",
+			"Profitez du goût concentré de la première traite du matin.",
 	},
 	{
 		image: import("../assets/images/pod-7.png"),
 		taste: "montazac et torez",
-		description: "Pour retrouver le gout d'un vin unique.",
+		description: "Pour retrouver le goût d'un vin unique.",
 	},
 ];
 
@@ -74,21 +75,21 @@ const Authors = [
 		name: "Baghera Jones",
 		job: "Streamer",
 		iconJob: "twitch",
-		review: `J’ai arrete de vape depuis que j’ai decouvert <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span>`,
+		review: `J’ai arrêté de vape depuis que j’ai découvert <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span>`,
 	},
 	{
 		profil: import("../assets/images/author-2.png"),
-		name: "Joueur_du_Grenier",
+		name: "Joueur du Grenier",
 		job: "Youtuber",
 		iconJob: "youtube",
-		review: `J’ai commande un pack pour toute la famille et même mon fils Legolas San Goku adore sa <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span>`,
+		review: `J’ai commandé un pack pour toute la famille et même mon fils Legolas San Goku adore sa <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span>`,
 	},
 	{
 		profil: import("../assets/images/author-3.png"),
 		name: "Etoiles",
 		job: "Streamer",
 		iconJob: "twitch",
-		review: `Grace a <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span> je regule mon taux d’insuline parfaitement et je n’achete plus de saumon ni de nutella !`,
+		review: `Grâce à <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span> je régule mon taux d’insuline parfaitement et je n’achète plus de saumon ni de nutella !`,
 	},
 ];
 ---
@@ -117,41 +118,28 @@ const Authors = [
 
 	io.observe(videoSpotify);
 
-	const checkScrollSpeed = (function (settings) {
-		settings = settings || {};
+	const ioRotate = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("to-rotate--active");
+				} else {
+					entry.target.classList.remove("to-rotate--active");
+				}
+			});
+		},
+		{
+			rootMargin: "-10% 0% -10% 0%",
+			threshold: 0.5,
+		},
+	);
 
-		let lastPos,
-			newPos,
-			timer,
-			delta,
-			delay = settings.delay || 50;
+	const toRotate = document.querySelector(".to-rotate");
 
-		function clear() {
-			lastPos = null;
-			delta = 0;
-		}
+	ioRotate.observe(toRotate);
 
-		clear();
-
-		return function () {
-			newPos = window.scrollY;
-			if (lastPos != null) {
-				// && newPos < maxScroll
-				delta = newPos - lastPos;
-			}
-			lastPos = newPos;
-			clearTimeout(timer);
-			timer = setTimeout(clear, delay);
-			return delta;
-		};
-	})();
-
-	const container = document.querySelector(".to-rotate");
-
-	window.addEventListener("scroll", function () {
-		var speed = checkScrollSpeed();
-
-		container.style.transform = `rotate(${speed * 1.5}deg)`;
+	document.querySelector(".to-top").addEventListener("click", () => {
+		lenis.scrollTo(0, 0);
 	});
 </script>
 
@@ -176,9 +164,9 @@ const Authors = [
 					<Logotype class="logotype" />
 					<Flag className="justify-center" />
 					<div class="section-hero__content-hero">
-						<span>pour ceux qui osent etre differents</span>
+						<span>pour ceux qui osent être différents</span>
 						<span class="mask">
-							pour ceux qui osent etre differents
+							pour ceux qui osent être différents
 						</span>
 					</div>
 				</div>
@@ -186,7 +174,7 @@ const Authors = [
 			<div class="row">
 				<div class="container">
 					<a href="#bento">
-						<Button variant="underline" label="decouvrir" />
+						<Button variant="underline" label="découvrir" />
 					</a>
 				</div>
 			</div>
@@ -209,11 +197,11 @@ const Authors = [
 								quality="99"
 							/>
 							<div>
-								<h2>elegante et sophistiquee</h2>
+								<h2>élégante et sophistiquée</h2>
 								<p>
-									Design raffine et ornements exclusifs pour
-									une experience de vapotage distinguee et
-									elegante.
+									Design raffiné et ornements exclusifs pour
+									une expérience de vapotage distinguée et
+									élégante.
 								</p>
 							</div>
 						</div>
@@ -230,8 +218,8 @@ const Authors = [
 							<div>
 								<h2>personnalisable</h2>
 								<p>
-									Ornements et accessoires premium pour creer
-									une vapoteuse unique qui reflete votre style
+									Ornements et accessoires premium pour créer
+									une vapoteuse unique qui reflète votre style
 									personnel.
 								</p>
 							</div>
@@ -249,16 +237,16 @@ const Authors = [
 							/>
 							<h2>made in france</h2>
 							<p>
-								Savoir-faire francais pour une experience de
-								sucotage authentique et exceptionnelle.
+								Savoir-faire français pour une expérience de
+								suçotage authentique et exceptionnelle.
 							</p>
 						</div>
 						<div class="span span-inovation">
 							<div class="bg-inovation"></div>
 							<h2>innovante</h2>
 							<p>
-								Technologies de pointe offrant une experience de
-								sucotage revolutionnaire et inegalee.
+								Technologies de pointe offrant une expérience de
+								suçotage révolutionnaire et inégalée.
 							</p>
 							<Picture
 								formats={["avif", "webp"]}
@@ -275,7 +263,7 @@ const Authors = [
 								<h2>savoureuse</h2>
 								<p>
 									Palette de saveurs exquises pour une
-									experience de sucotage delicieusement
+									expérience de suçotage délicieusement
 									satisfaisante et immersive.
 								</p>
 							</div>
@@ -295,9 +283,9 @@ const Authors = [
 								<div class="red"></div>
 							</div>
 							<div>
-								<h2>hebergement 100% français</h2>
+								<h2>hébérgement 100% français</h2>
 								<p>
-									Notre site web est heberge en france et
+									Notre site web est hébérgé en France et
 									développé par Othman et Doelia.
 								</p>
 							</div>
@@ -333,17 +321,17 @@ const Authors = [
 							<h2>technologie plug’n’tote <sup>®</sup></h2>
 						</div>
 						<div>
-							La tototte est equipee de la <strong>
-								technologie plug'n'tote
-							</strong>, permettant de changer de plug a volonte,
-							offrant ainsi un acces a une <strong>
-								gamme infinie de saveurs de sucotage
-							</strong> pour satisfaire tous les gouts.
+							La tototte est équipée de la <strong>
+								technologie plug'n'tote,
+							</strong> permettant de changer de plug à volonté, offrant
+							ainsi un accès à une <strong>
+								gamme infinie de saveurs de suçotage
+							</strong> pour satisfaire tous les goûts.
 						</div>
 						<div>
 							Cette technologie vous permet de changer en un clin
 							d’œil de saveur pour <strong>
-								voyager du bout des levres
+								voyager du bout des lèvres
 							</strong>.
 						</div>
 					</div>
@@ -354,7 +342,7 @@ const Authors = [
 					<a href="#taste">
 						<Button
 							variant="underline"
-							label="decouvrir les saveurs"
+							label="découvrir les saveurs"
 						/>
 					</a>
 					<div class="vertical"></div>
@@ -389,8 +377,8 @@ const Authors = [
 						<div>
 							<p>
 								Laissez-vous tenter par les saveurs des
-								differents plugs et <strong>
-									decouvrez un monde de delices
+								différents plugs et <strong>
+									découvrez un monde de délices
 								</strong> pour chaque envie.
 							</p>
 						</div>
@@ -406,14 +394,14 @@ const Authors = [
 				<div class="container">
 					<div class="section-battery-life__content">
 						<div>
-							<h2>sucotez sans soucis</h2>
+							<h2>suçotez sans soucis</h2>
 							<p>
 								La tototte offre une <strong>
 									autonomie impressionnante
-								</strong> de 50 heures de sucotage grace à sa batterie
+								</strong> de 50 heures de suçotage grâce à sa batterie
 								au lithium, assurant ainsi <strong>
 									des heures de plaisir ininterrompu
-								</strong> pour encore plus de confort et de tranquillite.
+								</strong> pour encore plus de confort et de tranquillité.
 							</p>
 						</div>
 						<div>
@@ -431,13 +419,13 @@ const Authors = [
 						<div>
 							<div>
 								<h3>50h</h3>
-								<p>de sucotage Bluetooth sans interruption</p>
+								<p>de suçotage Bluetooth sans interruption</p>
 							</div>
 							<p>
-								Grace aux <strong>
+								Grâce aux <strong>
 									technologies sans contact
 								</strong> profitez d’une recharge rapide sur son
-								socle a induction.
+								socle à induction.
 							</p>
 						</div>
 					</div>
@@ -468,7 +456,7 @@ const Authors = [
 				<div class="container">
 					<div class="content-wrapper">
 						<div>
-							<h2>sucotez vos titres preferes</h2>
+							<h2>suçotez vos titres préférés</h2>
 						</div>
 						<div>
 							<div>
@@ -479,11 +467,11 @@ const Authors = [
 								<p>En partenariat exclusif avec Spotify</p>
 							</div>
 							<p>
-								En connectant votre tototte a votre smartphone
+								En connectant votre tototte à votre smartphone
 								par la technologie bluetooth, <strong>
-									degustez vos morceaux
-								</strong> et vos videos preferees directement dans
-								votre bouche
+									dégustez vos morceaux
+								</strong> et vos videos préférées directement dans
+								votre bouche.
 							</p>
 						</div>
 					</div>
@@ -515,13 +503,13 @@ const Authors = [
 								Collaboration exclusive
 							</div>
 							<p>
-								Decouvrez l'exclusivite : la fusion inedite
+								Découvrez l'exclusivité : la fusion inédite
 								entre <strong>Le Jus de Mynthos</strong> et the <span
 								>
 									french tototte®
 								</span>, offrant un gout rare et recherche. Une
-								collaboration qui revele l'essence de
-								l'excellence et de l'originalite, a savourer
+								collaboration qui révèle l'essence de
+								l'excellence et de l'originalité, à savourer
 								sans plus attendre.
 							</p>
 						</div>
@@ -536,9 +524,9 @@ const Authors = [
 			<div class="row">
 				<div class="container">
 					<div class="section-testimonial__title">
-						<h2>ils ont sucote, ils ont adore</h2>
+						<h2>ils ont suçoté, ils ont adoré</h2>
 						<p>
-							Nos totottes sont utilisees par les plus grands de
+							Nos totottes sont utilisées par les plus grands de
 							ce monde et si vous voulez mon avis ce n’est pas un
 							hasard.
 						</p>
@@ -578,5 +566,6 @@ const Authors = [
 
 			<Logotype color="#816A6C" width="376" slot="logotype" />
 		</Shop>
+		<Top />
 	</main>
 </Layout>

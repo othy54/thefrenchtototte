@@ -73,8 +73,8 @@
             <div>
               <h2>personnalisez votre tototte</h2>
               <p>
-                Vous allez creer la tototte ideale pour vous. A chacun son
-                experience, a chacun sa tototte.
+                Vous allez créer la tototte idéale pour vous. À chacun son
+                expérience, à chacun sa tototte.
               </p>
               <div>
                 <h3>finition</h3>
@@ -92,7 +92,7 @@
               </div>
               <div>
                 <h3>ornement</h3>
-                <p>Choisissez votre pierre precieuse</p>
+                <p>Choisissez votre pierre précieuse</p>
                 <div class="color-ornement-wrapper">
                   <div
                     class="color-ornement"
@@ -128,7 +128,7 @@
                 </div>
               </div>
               <div class="panier">
-                <h3 class="bg2">votre panier est pret</h3>
+                <h3 class="bg2">votre panier est prêt</h3>
                 <p>récapitulatif de votre commande</p>
                 <div class="panier-wrapper">
                   <div class="panier-item flex-between">
@@ -195,23 +195,23 @@
                 <slot name="button" />
                 <p class="warantie">
                   <span>thefrenchtototte</span> est couverte par une garantie
-                  limitee contre les defauts de fabrication pour une periode de
-                  2 mois a compter de la date d'achat. Cette garantie ne couvre
-                  pas les dommages causes par une mauvaise utilisation, une
-                  negligence ou une modification non autorisee du produit. Dans
+                  limitée contre les défauts de fabrication pour une période de
+                  2 mois à compter de la date d'achat. Cette garantie ne couvre
+                  pas les dommages causés par une mauvaise utilisation, une
+                  négligence ou une modification non autorisée du produit. Dans
                   les limites permises par la loi,
-                  <span>thefrenchtototte</span> decline toute responsabilite
-                  pour les dommages directs, indirects, speciaux, accidentels ou
-                  consecutifs decoulant de l'utilisation ou de l'incapacite
+                  <span>thefrenchtototte</span> décline toute responsabilité
+                  pour les dommages directs, indirects, spéciaux, accidentels ou
+                  consécutifs découlant de l'utilisation ou de l'incapacité
                   d'utiliser <span>thefrenchtototte</span>, meme si
-                  <span>thefrenchtototte</span> a ete informee de la possibilite
+                  <span>thefrenchtototte</span> a été informée de la possibilité
                   de tels dommages. En utilisant <span>thefrenchtototte</span>,
-                  l'utilisateur consent a la collecte et a l'utilisation de ses
-                  donnees conformement a la politique de confidentialite de
-                  <span>thefrenchtototte</span>. Les informations collectees
-                  peuvent inclure, mais ne sont pas limitees a, des donnees
-                  d'utilisation, des informations de localisation et des donnees
-                  personnelles, telles que definies dans ladite politique de
+                  l'utilisateur consent à la collecte et à l'utilisation de ses
+                  données conformément à la politique de confidentialité de
+                  <span>thefrenchtototte</span>. Les informations collectées
+                  peuvent inclure, mais ne sont pas limitées à des données
+                  d'utilisation, des informations de localisation et des données
+                  personnelles, telles que définies dans ladite politique de
                   confidentialite.
                 </p>
               </div>
@@ -243,13 +243,13 @@
                   <slot name="logotype" />
                   <div class="copyright">
                     <p>
-                      Copyright © 2024 TheFrenchTototte. Tous droits reserves
+                      Copyright © 2024 TheFrenchTototte. Tous droits résérvés
                       <span class="fg-3"
                         >— Utilisation des cookies — Mention légales</span
                       >.
                     </p>
                     <p>
-                      Sur une idee originale d’Antoine Daniel, concept art par
+                      Sur une idée originale d’Antoine Daniel, concept art par
                       Tera Silver, 3D par Aurelien Thomas, logo par
                       Baloprisonnier, 3D print par Lunath, Packaging par
                       Illusion et site web par Othman
@@ -477,6 +477,10 @@ const socials = ref([
       & .glide {
         position: sticky;
         top: 180px;
+
+        @media screen and (min-width: 1921px) {
+          top: 230px;
+        }
       }
 
       .glide__slide {
@@ -777,6 +781,11 @@ footer {
   @media screen and (min-width: 768px) {
     margin-top: -680px;
     min-height: 900px;
+  }
+
+  @media screen and (min-width: 1921px) {
+    margin-top: -680px;
+    min-height: 90vh;
   }
 }
 

@@ -1,0 +1,55 @@
+<script>
+    const toTop = document.querySelector(".to-top");
+
+    const onScroll = (e) => {
+        if (window.scrollY > 800) {
+            toTop.classList.add("to-top--active");
+        } else {
+            toTop.classList.remove("to-top--active");
+        }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    // toTop.addEventListener("click", () => {
+    //     window.scrollTo(0, 0);
+    // });
+</script>
+<div class="to-top">
+    <svg
+        width="64"
+        height="64"
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <g opacity="0.5" clip-path="url(#clip0_81_391)">
+            <rect width="64" height="64" fill="#816A6C"></rect>
+            <path d="M32 85.5V26M32 26L19 39M32 26L45 39" stroke="#30171B">
+            </path>
+        </g>
+        <defs>
+            <clipPath id="clip0_81_391">
+                <rect width="64" height="64" fill="white"></rect>
+            </clipPath>
+        </defs>
+    </svg>
+</div>
+
+<style>
+    .to-top {
+        position: fixed;
+        right: 0;
+        bottom: -4px;
+        cursor: pointer;
+        transform: translateX(100%);
+        transition: 0.3s;
+
+        @media screen and (max-width: 1023px) {
+            display: none;
+        }
+    }
+
+    .to-top--active {
+        transform: translateX(0%);
+    }
+</style>
