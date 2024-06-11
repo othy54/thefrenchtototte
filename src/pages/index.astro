@@ -23,549 +23,573 @@ import Autonomy from "../assets/images/autonomy.png";
 import Mynthos from "../assets/images/mynthos.png";
 
 const Pods = [
-	{
-		image: import("../assets/images/pod-0.png"),
-		taste: "fraise",
-		description: "Une fraise française cueillie dans nos chères regions.",
-	},
-	{
-		image: import("../assets/images/pod-1.png"),
-		taste: "menthe",
-		description: "Pour une haleine fraîche avant vos réunions.",
-	},
-	{
-		image: import("../assets/images/pod-2.png"),
-		taste: "bubble gum",
-		description: "Un goût sucré pour retourner en enfance.",
-	},
-	{
-		image: import("../assets/images/pod-3.png"),
-		taste: "spicy",
-		description:
-			"Pour ceux qui aiment vivre des nouvelles choses tous les jours.",
-	},
-	{
-		image: import("../assets/images/pod-4.png"),
-		taste: "bacon fumé",
-		description:
-			"Un goût de porc pour honorer nos élevages made in France.",
-	},
-	{
-		image: import("../assets/images/pod-5.png"),
-		taste: "france",
-		description:
-			"Suçotez la République avec cet étendard bleu blanc rouge.",
-	},
-	{
-		image: import("../assets/images/pod-6.png"),
-		taste: "jus de mynthos",
-		description:
-			"Profitez du goût concentré de la première traite du matin.",
-	},
-	{
-		image: import("../assets/images/pod-7.png"),
-		taste: "montazac et torez",
-		description: "Pour retrouver le goût d'un vin unique.",
-	},
+  {
+    image: import("../assets/images/pod-0.png"),
+    taste: "fraise",
+    description: "Une fraise française cueillie dans nos chères regions.",
+  },
+  {
+    image: import("../assets/images/pod-1.png"),
+    taste: "menthe",
+    description: "Pour une haleine fraîche avant vos réunions.",
+  },
+  {
+    image: import("../assets/images/pod-2.png"),
+    taste: "bubble gum",
+    description: "Un goût sucré pour retourner en enfance.",
+  },
+  {
+    image: import("../assets/images/pod-3.png"),
+    taste: "spicy",
+    description:
+      "Pour ceux qui aiment vivre des nouvelles choses tous les jours.",
+  },
+  {
+    image: import("../assets/images/pod-4.png"),
+    taste: "bacon fumé",
+    description: "Un goût de porc pour honorer nos élevages made in France.",
+  },
+  {
+    image: import("../assets/images/pod-5.png"),
+    taste: "france",
+    description: "Suçotez la République avec cet étendard bleu blanc rouge.",
+  },
+  {
+    image: import("../assets/images/pod-6.png"),
+    taste: "jus de mynthos",
+    description: "Profitez du goût concentré de la première traite du matin.",
+  },
+  {
+    image: import("../assets/images/pod-7.png"),
+    taste: "montazac et torez",
+    description: "Pour retrouver le goût d'un vin unique.",
+  },
 ];
 
 const Authors = [
-	{
-		profil: import("../assets/images/author-1.png"),
-		name: "Baghera Jones",
-		job: "Streamer",
-		iconJob: "twitch",
-		review: `J’ai arrêté de vape depuis que j’ai découvert <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span>`,
-	},
-	{
-		profil: import("../assets/images/author-2.png"),
-		name: "Joueur du Grenier",
-		job: "Youtuber",
-		iconJob: "youtube",
-		review: `J’ai commandé un pack pour toute la famille et même mon fils Legolas San Goku adore sa <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span>`,
-	},
-	{
-		profil: import("../assets/images/author-3.png"),
-		name: "Etoiles",
-		job: "Streamer",
-		iconJob: "twitch",
-		review: `Grâce à <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span> je régule mon taux d’insuline parfaitement et je n’achète plus de saumon ni de nutella !`,
-	},
+  {
+    profil: import("../assets/images/author-1.png"),
+    name: "Baghera Jones",
+    job: "Streamer",
+    iconJob: "twitch",
+    review: `J’ai arrêté de vape depuis que j’ai découvert <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span>`,
+  },
+  {
+    profil: import("../assets/images/author-2.png"),
+    name: "Joueur du Grenier",
+    job: "Youtuber",
+    iconJob: "youtube",
+    review: `J’ai commandé un pack pour toute la famille et même mon fils Legolas San Goku adore sa <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span>`,
+  },
+  {
+    profil: import("../assets/images/author-3.png"),
+    name: "Etoiles",
+    job: "Streamer",
+    iconJob: "twitch",
+    review: `Grâce à <span style="font-family: Tartuffo, sans-serif;">the french tototte®</span> je régule mon taux d’insuline parfaitement et je n’achète plus de saumon ni de nutella !`,
+  },
 ];
 ---
 
 <script>
-	import Lenis from "lenis";
+  import Lenis from "lenis";
 
-	const lenis = new Lenis();
+  const lenis = new Lenis();
 
-	function raf(time) {
-		lenis.raf(time);
-		requestAnimationFrame(raf);
-	}
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
 
-	requestAnimationFrame(raf);
+  requestAnimationFrame(raf);
 
-	const videoSpotify = document.querySelector(".spotify-video");
-	const io = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				entry.target.play();
-				io.unobserve(videoSpotify);
-			}
-		});
-	});
+  const videoSpotify = document.querySelector(".spotify-video");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.play();
+        io.unobserve(videoSpotify);
+      }
+    });
+  });
 
-	io.observe(videoSpotify);
+  io.observe(videoSpotify);
 
-	const ioRotate = new IntersectionObserver(
-		(entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add("to-rotate--active");
-				} else {
-					entry.target.classList.remove("to-rotate--active");
-				}
-			});
-		},
-		{
-			rootMargin: "-10% 0% -10% 0%",
-			threshold: 0.5,
-		},
-	);
+  const ioRotate = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("to-rotate--active");
+        } else {
+          entry.target.classList.remove("to-rotate--active");
+        }
+      });
+    },
+    {
+      rootMargin: "-10% 0% -10% 0%",
+      threshold: 0.5,
+    }
+  );
 
-	const toRotate = document.querySelector(".to-rotate");
+  const toRotate = document.querySelector(".to-rotate");
 
-	ioRotate.observe(toRotate);
+  ioRotate.observe(toRotate);
 
-	document.querySelector(".to-top").addEventListener("click", () => {
-		lenis.scrollTo(0, 0);
-	});
+  document.querySelector(".to-top").addEventListener("click", () => {
+    lenis.scrollTo(0, 0);
+  });
 </script>
 
 <Layout title="The French Tototte | La Tototte à la française">
-	<main id="main" style="position: relative">
-		<!-- SECTION HERO -->
-		<section class="section section-hero">
-			<video
-				class="section-hero__bg-video"
-				muted
-				autoplay
-				loop
-				playsinline
-			>
-				<source src="/video/bg-hero-video.webm" type="video/webm" />
-				<source src="/video/bg-hero-video.mp4" type="video/mp4" />
-			</video>
-			<div class="mask-hero"></div>
-			<Header />
-			<div class="row darken">
-				<div class="container">
-					<Logotype class="logotype" />
-					<Flag className="justify-center" />
-					<div class="section-hero__content-hero">
-						<span>pour ceux qui osent être différents</span>
-						<span class="mask">
-							pour ceux qui osent être différents
-						</span>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="container">
-					<a href="#bento">
-						<Button variant="underline" label="découvrir" />
-					</a>
-				</div>
-			</div>
-		</section>
+  <main
+    id="main"
+    style="position: relative"
+  >
+    <!-- SECTION HERO -->
+    <section class="section section-hero">
+      <video
+        class="section-hero__bg-video"
+        muted
+        autoplay
+        loop
+        playsinline
+      >
+        <source
+          src="/video/bg-hero-video.webm"
+          type="video/webm"
+        />
+        <source
+          src="/video/bg-hero-video.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div class="mask-hero"></div>
+      <Header />
+      <div class="row darken">
+        <div class="container">
+          <Logotype class="logotype" />
+          <Flag className="justify-center" />
+          <div class="section-hero__content-hero">
+            <span>pour ceux qui osent être différents</span>
+            <span class="mask">pour ceux qui osent être différents</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <a href="#bento">
+            <Button
+              variant="underline"
+              label="découvrir"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
 
-		<!-- SECTION BENTO -->
+    <!-- SECTION BENTO -->
 
-		<section class="section section-bento">
-			<div class="row">
-				<div id="bento" class="container">
-					<div class="section-bento__grid">
-						<div class="span span-elegance">
-							<Picture
-								formats={["avif", "webp"]}
-								src={Elegance}
-								alt="elegance"
-								densities={[1, 2]}
-								width="672"
-								height="350"
-								quality="99"
-							/>
-							<div>
-								<h2>élégante et sophistiquée</h2>
-								<p>
-									Design raffiné et ornements exclusifs pour
-									une expérience de vapotage distinguée et
-									élégante.
-								</p>
-							</div>
-						</div>
-						<div class="span span-customable">
-							<Picture
-								formats={["avif", "webp"]}
-								src={Customable}
-								alt="customable"
-								densities={[1, 2]}
-								width="150"
-								height="77"
-								quality="99"
-							/>
-							<div>
-								<h2>personnalisable</h2>
-								<p>
-									Ornements et accessoires premium pour créer
-									une vapoteuse unique qui reflète votre style
-									personnel.
-								</p>
-							</div>
-						</div>
-						<div class="span span-made">
-							<div class="bg-french"></div>
-							<Picture
-								formats={["avif", "webp"]}
-								src={MadeFrance}
-								alt="made in france"
-								densities={[1, 2]}
-								width="208"
-								height="55"
-								quality="99"
-							/>
-							<h2>made in france</h2>
-							<p>
-								Savoir-faire français pour une expérience de
-								suçotage authentique et exceptionnelle.
-							</p>
-						</div>
-						<div class="span span-inovation">
-							<div class="bg-inovation"></div>
-							<h2>innovante</h2>
-							<p>
-								Technologies de pointe offrant une expérience de
-								suçotage révolutionnaire et inégalée.
-							</p>
-							<Picture
-								formats={["avif", "webp"]}
-								src={Inovation}
-								alt="inovation"
-								densities={[1, 2]}
-								width="393"
-								height="233"
-								quality="99"
-							/>
-						</div>
-						<div class="span span-tasty">
-							<div>
-								<h2>savoureuse</h2>
-								<p>
-									Palette de saveurs exquises pour une
-									expérience de suçotage délicieusement
-									satisfaisante et immersive.
-								</p>
-							</div>
-							<Picture
-								formats={["avif", "webp"]}
-								src={Tasty}
-								alt="tasty"
-								densities={[1, 2]}
-								width="1002"
-								quality="99"
-							/>
-						</div>
-						<div class="span span-host">
-							<div class="section-bento__flag">
-								<div class="blue"></div>
-								<div class="white"></div>
-								<div class="red"></div>
-							</div>
-							<div>
-								<h2>hébérgement 100% français</h2>
-								<p>
-									Notre site web est hébérgé en France et
-									développé par Othman et Doelia.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="container">
-					<img
-						class="tototte-gif"
-						loading="lazy"
-						src="/images/french-tototte-gif-opti.gif"
-						alt="french tototte"
-						width="720"
-						height="720"
-					/>
-				</div>
-			</div>
-			<div class="row">
-				<div class="container"></div>
-			</div>
-		</section>
+    <section class="section section-bento">
+      <div class="row">
+        <div
+          id="bento"
+          class="container"
+        >
+          <div class="section-bento__grid">
+            <div class="span span-elegance">
+              <Picture
+                formats={["avif", "webp"]}
+                src={Elegance}
+                alt="elegance"
+                densities={[1, 2]}
+                width="672"
+                height="350"
+                quality="99"
+              />
+              <div>
+                <h2>élégante et sophistiquée</h2>
+                <p>
+                  Design raffiné et ornements exclusifs pour une expérience de
+                  vapotage distinguée et élégante.
+                </p>
+              </div>
+            </div>
+            <div class="span span-customable">
+              <Picture
+                formats={["avif", "webp"]}
+                src={Customable}
+                alt="customable"
+                densities={[1, 2]}
+                width="150"
+                height="77"
+                quality="99"
+              />
+              <div>
+                <h2>personnalisable</h2>
+                <p>
+                  Ornements et accessoires premium pour créer une vapoteuse
+                  unique qui reflète votre style personnel.
+                </p>
+              </div>
+            </div>
+            <div class="span span-made">
+              <div class="bg-french"></div>
+              <Picture
+                formats={["avif", "webp"]}
+                src={MadeFrance}
+                alt="made in france"
+                densities={[1, 2]}
+                width="208"
+                height="55"
+                quality="99"
+              />
+              <h2>made in france</h2>
+              <p>
+                Savoir-faire français pour une expérience de suçotage
+                authentique et exceptionnelle.
+              </p>
+            </div>
+            <div class="span span-inovation">
+              <div class="bg-inovation"></div>
+              <h2>innovante</h2>
+              <p>
+                Technologies de pointe offrant une expérience de suçotage
+                révolutionnaire et inégalée.
+              </p>
+              <Picture
+                formats={["avif", "webp"]}
+                src={Inovation}
+                alt="inovation"
+                densities={[1, 2]}
+                width="393"
+                height="233"
+                quality="99"
+              />
+            </div>
+            <div class="span span-tasty">
+              <div>
+                <h2>savoureuse</h2>
+                <p>
+                  Palette de saveurs exquises pour une expérience de suçotage
+                  délicieusement satisfaisante et immersive.
+                </p>
+              </div>
+              <Picture
+                formats={["avif", "webp"]}
+                src={Tasty}
+                alt="tasty"
+                densities={[1, 2]}
+                width="1002"
+                quality="99"
+              />
+            </div>
+            <div class="span span-host">
+              <div class="section-bento__flag">
+                <div class="blue"></div>
+                <div class="white"></div>
+                <div class="red"></div>
+              </div>
+              <div>
+                <h2>hébérgement 100% français</h2>
+                <p>
+                  Notre site web est hébérgé en France sur <a
+                    style="color:var(--fg2)"
+                    href="https://www.o2switch.fr/"
+                    target="_blank"
+                  >
+                    o2switch
+                  </a> et développé par <a
+                    style="color:var(--fg2)"
+                    href="https://x.com/Othman_Bens_"
+                    target="_blank"
+                  >
+                    Othman
+                  </a> et <a
+                    style="color:var(--fg2)"
+                    href="https://x.com/Doelia"
+                    target="_blank"
+                  >
+                    Doelia
+                  </a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <img
+            class="tototte-gif"
+            loading="lazy"
+            src="/images/french-tototte-gif-opti.gif"
+            alt="french tototte"
+            width="720"
+            height="720"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="container"></div>
+      </div>
+    </section>
 
-		<!-- SECTION SAVEURS -->
+    <!-- SECTION SAVEURS -->
 
-		<section class="section section-tastes">
-			<div class="bg-radial-1"></div>
-			<div class="row">
-				<div class="container">
-					<div class="section-tastes__grid">
-						<div>
-							<h2>technologie plug’n’tote <sup>®</sup></h2>
-						</div>
-						<div>
-							La tototte est équipée de la <strong>
-								technologie plug'n'tote,
-							</strong> permettant de changer de plug à volonté, offrant
-							ainsi un accès à une <strong>
-								gamme infinie de saveurs de suçotage
-							</strong> pour satisfaire tous les goûts.
-						</div>
-						<div>
-							Cette technologie vous permet de changer en un clin
-							d’œil de saveur pour <strong>
-								voyager du bout des lèvres
-							</strong>.
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="container">
-					<a href="#taste">
-						<Button
-							variant="underline"
-							label="découvrir les saveurs"
-						/>
-					</a>
-					<div class="vertical"></div>
-				</div>
-			</div>
-			<div class="row">
-				<div id="taste" class="container">
-					<div class="pod-wrapper">
-						{
-							Pods.map((podItem) => (
-								<Pod
-									taste={podItem.taste}
-									description={podItem.description}
-									PodImage={podItem.image}
-								/>
-							))
-						}
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="container">
-					<div class="section-tastes__grid2">
-						<div>
-							<h3>30</h3>
-							<p>Saveurs disponibles</p>
-						</div>
-						<div>
-							<h3>11</h3>
-							<p>Vertus médicinales</p>
-						</div>
-						<div>
-							<p>
-								Laissez-vous tenter par les saveurs des
-								différents plugs et <strong>
-									découvrez un monde de délices
-								</strong> pour chaque envie.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <section class="section section-tastes">
+      <div class="bg-radial-1"></div>
+      <div class="row">
+        <div class="container">
+          <div class="section-tastes__grid">
+            <div>
+              <h2>technologie plug’n’tote <sup>®</sup></h2>
+            </div>
+            <div>
+              La tototte est équipée de la <strong>
+                technologie plug'n'tote,
+              </strong> permettant de changer de plug à volonté, offrant ainsi un
+              accès à une <strong>gamme infinie de saveurs de suçotage</strong> pour
+              satisfaire tous les goûts.
+            </div>
+            <div>
+              Cette technologie vous permet de changer en un clin d’œil de
+              saveur pour <strong>voyager du bout des lèvres</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <a href="#taste">
+            <Button
+              variant="underline"
+              label="découvrir les saveurs"
+            />
+          </a>
+          <div class="vertical"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          id="taste"
+          class="container"
+        >
+          <div class="pod-wrapper">
+            {
+              Pods.map((podItem) => (
+                <Pod
+                  taste={podItem.taste}
+                  description={podItem.description}
+                  PodImage={podItem.image}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="section-tastes__grid2">
+            <div>
+              <h3>30</h3>
+              <p>Saveurs disponibles</p>
+            </div>
+            <div>
+              <h3>11</h3>
+              <p>Vertus médicinales</p>
+            </div>
+            <div>
+              <p>
+                Laissez-vous tenter par les saveurs des différents plugs et <strong
+                >
+                  découvrez un monde de délices
+                </strong> pour chaque envie.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-		<!-- SECTION AUTONOMIE -->
+    <!-- SECTION AUTONOMIE -->
 
-		<section class="section section-battery-life">
-			<div class="row">
-				<div class="container">
-					<div class="section-battery-life__content">
-						<div>
-							<h2>suçotez sans soucis</h2>
-							<p>
-								La tototte offre une <strong>
-									autonomie impressionnante
-								</strong> de 50 heures de suçotage grâce à sa batterie
-								au lithium, assurant ainsi <strong>
-									des heures de plaisir ininterrompu
-								</strong> pour encore plus de confort et de tranquillité.
-							</p>
-						</div>
-						<div>
-							<Picture
-								class="to-rotate"
-								formats={["avif", "webp"]}
-								src={Autonomy}
-								alt="autonomy"
-								densities={[1, 2]}
-								width="960"
-								height="960"
-								quality="99"
-							/>
-						</div>
-						<div>
-							<div>
-								<h3>50h</h3>
-								<p>de suçotage Bluetooth sans interruption</p>
-							</div>
-							<p>
-								Grâce aux <strong>
-									technologies sans contact
-								</strong> profitez d’une recharge rapide sur son
-								socle à induction.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <section class="section section-battery-life">
+      <div class="row">
+        <div class="container">
+          <div class="section-battery-life__content">
+            <div>
+              <h2>suçotez sans soucis</h2>
+              <p>
+                La tototte offre une <strong>autonomie impressionnante</strong> de
+                50 heures de suçotage grâce à sa batterie au lithium, assurant ainsi
+                <strong>des heures de plaisir ininterrompu</strong> pour encore plus
+                de confort et de tranquillité.
+              </p>
+            </div>
+            <div>
+              <Picture
+                class="to-rotate"
+                formats={["avif", "webp"]}
+                src={Autonomy}
+                alt="autonomy"
+                densities={[1, 2]}
+                width="960"
+                height="960"
+                quality="99"
+              />
+            </div>
+            <div>
+              <div>
+                <h3>50h</h3>
+                <p>de suçotage Bluetooth sans interruption</p>
+              </div>
+              <p>
+                Grâce aux <strong>technologies sans contact</strong> profitez d’une
+                recharge rapide sur son socle à induction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-		<!-- SECTION SPOTIFY -->
-		<section class="section section-spotify">
-			<div class="bg-radial"></div>
-			<div class="row">
-				<div class="container">
-					<div class="video-wrapper">
-						<video class="spotify-video" muted loop playsinline>
-							<source
-								src="/video/spotifyvideo.webm"
-								type="video/webm"
-							/>
-							<source
-								src="/video/spotifyvideo.mp4"
-								type="video/mp4"
-							/>
-						</video>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="container">
-					<div class="content-wrapper">
-						<div>
-							<h2>suçotez vos titres préférés</h2>
-						</div>
-						<div>
-							<div>
-								<div class="btn-spotify">
-									<Spotify />
-									Spotify Connect®
-								</div>
-								<p>En partenariat exclusif avec Spotify</p>
-							</div>
-							<p>
-								En connectant votre tototte à votre smartphone
-								par la technologie bluetooth, <strong>
-									dégustez vos morceaux
-								</strong> et vos videos préférées directement dans
-								votre bouche.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <!-- SECTION SPOTIFY -->
+    <section class="section section-spotify">
+      <div class="bg-radial"></div>
+      <div class="row">
+        <div class="container">
+          <div class="video-wrapper">
+            <video
+              class="spotify-video"
+              muted
+              loop
+              playsinline
+            >
+              <source
+                src="/video/spotifyvideo.webm"
+                type="video/webm"
+              />
+              <source
+                src="/video/spotifyvideo.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="content-wrapper">
+            <div>
+              <h2>suçotez vos titres préférés</h2>
+            </div>
+            <div>
+              <div>
+                <div class="btn-spotify">
+                  <Spotify />
+                  Spotify Connect®
+                </div>
+                <p>En partenariat exclusif avec Spotify</p>
+              </div>
+              <p>
+                En connectant votre tototte à votre smartphone par la
+                technologie bluetooth, <strong>dégustez vos morceaux</strong> et
+                vos videos préférées directement dans votre bouche.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-		<!-- SECTION MYNTHOS -->
+    <!-- SECTION MYNTHOS -->
 
-		<section class="section section-mynthos">
-			<div class="row">
-				<div class="container">
-					<div class="section-mynthos__grid">
-						<div class="relative">
-							<Picture
-								formats={["avif", "webp"]}
-								src={Mynthos}
-								alt="mynthos"
-								densities={[1, 2]}
-								width="274"
-								height="314"
-								quality="99"
-							/>
-							<div class="light-layer"></div>
-						</div>
-						<div>
-							<h2>le jus de mynthos</h2>
-							<div class="collaboration">
-								Collaboration exclusive
-							</div>
-							<p>
-								Découvrez l'exclusivité : la fusion inédite
-								entre <strong>Le Jus de Mynthos</strong> et the <span
-								>
-									french tototte®
-								</span>, offrant un gout rare et recherche. Une
-								collaboration qui révèle l'essence de
-								l'excellence et de l'originalité, à savourer
-								sans plus attendre.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <section class="section section-mynthos">
+      <div class="row">
+        <div class="container">
+          <div class="section-mynthos__grid">
+            <div class="relative">
+              <Picture
+                formats={["avif", "webp"]}
+                src={Mynthos}
+                alt="mynthos"
+                densities={[1, 2]}
+                width="274"
+                height="314"
+                quality="99"
+              />
+              <div class="light-layer"></div>
+            </div>
+            <div>
+              <h2>le jus de mynthos</h2>
+              <div class="collaboration">Collaboration exclusive</div>
+              <p>
+                Découvrez l'exclusivité : la fusion inédite entre <strong>
+                  Le Jus de Mynthos
+                </strong> et the <span>french tototte®</span>, offrant un gout
+                rare et recherche. Une collaboration qui révèle l'essence de
+                l'excellence et de l'originalité, à savourer sans plus attendre.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-		<!-- SECTION TESTIMONIAL -->
+    <!-- SECTION TESTIMONIAL -->
 
-		<section class="section section-testimonial">
-			<div class="row">
-				<div class="container">
-					<div class="section-testimonial__title">
-						<h2>ils ont suçoté, ils ont adoré</h2>
-						<p>
-							Nos totottes sont utilisées par les plus grands de
-							ce monde et si vous voulez mon avis ce n’est pas un
-							hasard.
-						</p>
-					</div>
-				</div>
-			</div>
+    <section class="section section-testimonial">
+      <div class="row">
+        <div class="container">
+          <div class="section-testimonial__title">
+            <h2>ils ont suçoté, ils ont adoré</h2>
+            <p>
+              Nos totottes sont utilisées par les plus grands de ce monde et si
+              vous voulez mon avis ce n’est pas un hasard.
+            </p>
+          </div>
+        </div>
+      </div>
 
-			<div class="row">
-				<div class="container">
-					<div class="section-testimonial__grid">
-						{
-							Authors.map((authorItem) => (
-								<Author
-									profil={authorItem.profil}
-									name={authorItem.name}
-									job={authorItem.job}
-									iconJob={authorItem.iconJob}
-									review={authorItem.review}
-								/>
-							))
-						}
-					</div>
-				</div>
-			</div>
-		</section>
+      <div class="row">
+        <div class="container">
+          <div class="section-testimonial__grid">
+            {
+              Authors.map((authorItem) => (
+                <Author
+                  profil={authorItem.profil}
+                  name={authorItem.name}
+                  job={authorItem.job}
+                  iconJob={authorItem.iconJob}
+                  review={authorItem.review}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
 
-		<!-- SECTION SHOP -->
+    <!-- SECTION SHOP -->
 
-		<Shop client:visible>
-			<a
-				href="https://www.youtube.com/@BastiUi"
-				target="_blank"
-				slot="button"
-			>
-				<Button label="Ajouter au panier" variant="lighter" />
-			</a>
+    <Shop client:visible>
+      <a
+        href="https://www.youtube.com/@BastiUi"
+        target="_blank"
+        slot="button"
+      >
+        <Button
+          label="Ajouter au panier"
+          variant="lighter"
+        />
+      </a>
 
-			<Logotype color="#816A6C" width="376" slot="logotype" />
-		</Shop>
-		<Top />
-	</main>
+      <Logotype
+        color="#816A6C"
+        width="376"
+        slot="logotype"
+      />
+    </Shop>
+    <Top />
+  </main>
 </Layout>
