@@ -18,21 +18,21 @@
                   </div>
                 </div>
                 <div class="glide__bullets" data-glide-el="controls[nav]">
-                  <button
+                  <div
                     aria-label="bullet"
                     class="glide__bullet"
                     data-glide-dir="=0"
-                  ></button>
-                  <button
+                  ></div>
+                  <div
                     aria-label="bullet"
                     class="glide__bullet"
                     data-glide-dir="=1"
-                  ></button>
-                  <button
+                  ></div>
+                  <div
                     aria-label="bullet"
                     class="glide__bullet"
                     data-glide-dir="=2"
-                  ></button>
+                  ></div>
                 </div>
                 <div class="controls" data-glide-el="controls">
                   <div class="control previous" data-glide-dir="<">
