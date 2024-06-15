@@ -128,7 +128,7 @@ const Authors = [
     {
       rootMargin: "-10% 0% -10% 0%",
       threshold: 0.5,
-    }
+    },
   );
 
   const toRotate = document.querySelector(".to-rotate");
@@ -319,14 +319,23 @@ const Authors = [
       </div>
       <div class="row">
         <div class="container">
-          <img
-            class="tototte-gif"
-            loading="lazy"
-            src="/images/french-tototte-gif-opti.gif"
-            alt="french tototte"
-            width="720"
-            height="720"
-          />
+          <picture>
+            <source
+              srcset="/images/french-tototte-gif-mobile.gif"
+              media="(max-width: 768px)"
+              width="480"
+              height="480"
+            />
+
+            <img
+              class="tototte-gif"
+              loading="lazy"
+              src="/images/french-tototte-gif-opti.gif"
+              alt="french tototte"
+              width="720"
+              height="720"
+            />
+          </picture>
         </div>
       </div>
       <div class="row">
