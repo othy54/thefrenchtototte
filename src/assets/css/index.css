@@ -644,6 +644,7 @@
 .section-battery-life {
     background-color: var(--bg2);
     padding-top: 200px;
+    overflow: clip;
 }
 
 .section-battery-life__content {
