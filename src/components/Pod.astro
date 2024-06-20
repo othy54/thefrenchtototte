@@ -35,7 +35,7 @@ const { taste, description, PodImage } = Astro.props;
             scale 0.5s,
             opacity 0.5s;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 1024px) {
             display: block;
             transform: translate(85%, -85%);
             right: 50%;
@@ -47,7 +47,7 @@ const { taste, description, PodImage } = Astro.props;
             width: 200px;
             padding: 24px;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 1024px) {
                 width: 235px;
             }
 
@@ -58,7 +58,7 @@ const { taste, description, PodImage } = Astro.props;
                 mix-blend-mode: multiply;
                 margin: 0;
 
-                @media screen and (min-width: 768px) {
+                @media screen and (min-width: 1024px) {
                     font-size: 24px;
                 }
             }
@@ -72,7 +72,7 @@ const { taste, description, PodImage } = Astro.props;
                 color: var(--fg3);
                 line-height: 170%;
 
-                @media screen and (min-width: 768px) {
+                @media screen and (min-width: 1024px) {
                     font-size: 15px;
                 }
             }
@@ -100,7 +100,7 @@ const { taste, description, PodImage } = Astro.props;
                 transform: translateX(-50%);
             }
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 1024px) {
                 display: block;
             }
         }
@@ -131,7 +131,7 @@ const { taste, description, PodImage } = Astro.props;
             max-width: 80px;
             height: auto;
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 1024px) {
                 display: block;
                 max-width: 90px;
             }
@@ -154,27 +154,27 @@ const { taste, description, PodImage } = Astro.props;
 
         &:nth-child(1) .info-wrapper,
         &:nth-child(5) .info-wrapper {
-            @media screen and (max-width: 640px) {
+            @media screen and (max-width: 1023px) {
                 transform: translate(80%, -85%);
             }
         }
 
         &:nth-child(2) .info-wrapper,
         &:nth-child(6) .info-wrapper {
-            @media screen and (max-width: 640px) {
+            @media screen and (max-width: 1023px) {
                 transform: translate(70%, -85%);
             }
         }
 
         &:nth-child(3) .info-wrapper,
         &:nth-child(7) .info-wrapper {
-            @media screen and (max-width: 640px) {
+            @media screen and (max-width: 1023px) {
                 transform: translate(25%, -85%);
             }
         }
 
         .info-wrapper {
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 1023px) {
                 display: block;
                 transform: translate(85%, -85%);
                 right: 0;

@@ -454,7 +454,7 @@ const socials = ref([
     position: relative;
     z-index: 20;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1024px) {
       grid-template-columns: repeat(4, 1fr);
       gap: 88px;
     }
@@ -479,7 +479,7 @@ const socials = ref([
     & > div:nth-child(2) {
       margin-top: 40px;
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1024px) {
         margin-top: 0px;
       }
 
@@ -511,7 +511,7 @@ const socials = ref([
         line-height: 90%;
         margin-bottom: 24px;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 1024px) {
           margin-top: 120px;
         }
       }
@@ -630,7 +630,7 @@ const socials = ref([
   position: relative;
   bottom: 15px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     gap: 3px;
   }
 }
@@ -651,7 +651,7 @@ const socials = ref([
 
 .controls {
   display: none;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     position: absolute;
     display: flex;
     width: 100%;
